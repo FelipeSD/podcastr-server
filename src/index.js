@@ -17,6 +17,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./database/index'); // database connection
 require('./routes/episodeRoutes')(app); // episode route setup
 
+app.get("/", (req, res) => {
+    res.json({message: "Podcastr server is working"});
+});
+
 // start app
 app.listen(process.env.PORT || 3333,  () => {
     console.log(`Podcastr server is running at port ${process.env.PORT || 3333}`);
